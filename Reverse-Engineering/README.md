@@ -37,7 +37,7 @@ ________________________________________________________
 file pass
 ```
 
-`Output`
+`Output`:
 
 
 ![pass](../Images/filepass.png)
@@ -57,8 +57,18 @@ Lâ on peut voir toutes les sections contenues dans le binaire
 
 En Faisant des recherche vous verez que la section `.rodata` contient les données qui peuvent etre en clair dans le binaire 
 
+Nous allons donc utilisé la commande `objdump` qui se trouve de base sur la plupart des distributions GNU/Linux
 
+`objdump -d -j .rodata Files/pass`
 
+### **Explication des parametres**
+
+> `-d` : pour effectuer le desassemblage
+`-j` : pour preciser la section voulue
+
+`Output`:
+
+![pass](../Images/.png)
 
 
 
