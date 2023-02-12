@@ -26,7 +26,9 @@ ________________________________________________________
 #### Let's Go🏇️
 
 ## 1. La devinette
-
+	
+	. Premiere méthode
+	
 **Download** [pass](../Files/pass "pass") (Binary file)
 
 1. Premiere méthode
