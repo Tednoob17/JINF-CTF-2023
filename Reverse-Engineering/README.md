@@ -28,7 +28,7 @@ ________________________________________________________
 ## 1. La devinette
 	
 
-	*	Premiere méthode
+	-Premiere méthode
 	
 **Download** [pass](../Files/pass "pass") (Binary file)
 
