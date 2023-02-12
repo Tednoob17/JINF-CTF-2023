@@ -100,6 +100,7 @@ Déassemblage de la section .rodata :
 
 ```
 `Output`:
+
 ![pass](../Images/flag.png)
 
 > **Souvent** les chaines en base64 64 base32 se termine par un signe `=`
