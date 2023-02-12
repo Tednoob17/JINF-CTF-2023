@@ -12,8 +12,8 @@
 ________________________________________________________
 |Challenge		|Category	    	|Value  |
 | ---------------------	|  ------------------	| ----- |
-|[x] La devinette       | Reverse Engineering	|  100  |
-|[x] Crack me		| Reverse Engineering	|  200  |
+| La devinette          | Reverse Engineering	|  100  |
+| Crack me		| Reverse Engineering	|  200  |
 ---------------------------------------------------------
 
 	- La devinette
@@ -55,9 +55,9 @@ strings pass
 
 Lâ on peut voir toutes les sections contenues dans le binaire
 
-En Faisant des recherche vous verez que la section `.rodata` contient les données qui peuvent etre en clair dans le binaire 
+En Faisant des recherche vous verez que la section `.rodata` contient les données qui peuvent etre en clair dans le binaire 📦️
 
-Nous allons donc utilisé la commande `objdump` qui se trouve de base sur la plupart des distributions GNU/Linux
+Nous allons donc utilisé la commande `objdump` qui se trouve de base sur la plupart des distributions GNU/Linux 📀️
 
 
 ```bash
@@ -99,12 +99,20 @@ Déassemblage de la section .rodata :
     20b0:	61 6c 69 64 65 72 3a 20 25 73 0a 00                 alider: %s..
 
 ```
+`Output`:
 ![pass](../Images/flag.png)
 
+> **Souvent** les chaines en base64 64 base32 se termine par un signe `=`
+On peut donc essayer de la decodé
 
 
+```bash
+	echo "SklORntUVU5FY29OTkFJU3Bhc1JWfQo="|base64 -d
+```
+`Output`:
 
-
+Et l'on peut voir s'afficher le flag 🔍️
+![pass](../Images/obtain.png)
 
 
 
