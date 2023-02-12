@@ -38,7 +38,7 @@ file pass
 ```
 
 `Output`
-
+![pass](../Images/filepass.png)
 
 
 
