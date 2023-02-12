@@ -53,7 +53,9 @@ strings pass
 
 ![pass](../Images/header.png)
 
+Lâ on peut voir toutes les sections contenues dans le binaire
 
+En Faisant des recherche vous verez que la section `.rodata` contient les données qui peuvent etre en clair dans le binaire 
 
 
 
