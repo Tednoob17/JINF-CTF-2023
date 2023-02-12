@@ -68,7 +68,7 @@ Nous allons donc utilisé la commande `objdump` qui se trouve de base sur la plu
 
 `Output`:
 
-![pass](../Images/.png)
+![pass](../Images/obj.png)
 
 
 
