@@ -59,12 +59,14 @@ En Faisant des recherche vous verez que la section `.rodata` contient les donné
 
 Nous allons donc utilisé la commande `objdump` qui se trouve de base sur la plupart des distributions GNU/Linux
 
-`objdump -d -j .rodata Files/pass`
 
+```bash
+objdump -d -j .rodata Files/pass`
+```
 ### **Explication des parametres**
 
 > `-d` : pour effectuer le desassemblage
-`-j` : pour preciser la section voulue
+> `-j` : pour preciser la section voulue
 
 `Output`:
 
