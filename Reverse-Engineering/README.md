@@ -1,7 +1,7 @@
 # JINF-CTF-2023
 
 ### Kira's_team
-1. Kira `Captain`
+1. Kira **Captain**
 2. amo_weak
 3. Eddy
 4. Hyd3
@@ -12,15 +12,14 @@
 ________________________________________________________
 |Challenge		|Category	    	|Value  |
 | ---------------------	|  ------------------	| ----- |
-|La devinette		|Reverse Engineering	|  200  |
-|Crack me		|Reverse Engineering	|  100  |
+|[x] La devinette       | Reverse Engineering	|  100  |
+|[x] Crack me		| Reverse Engineering	|  200  |
+---------------------------------------------------------
 
-
-	
-	1. La devinette
+	- La devinette
 		- Premiere méthode
 		- Seconde  méthode
-	2. Crack me
+	- Crack me
 		- Premiere méthode
 		- Seconde  méthode
 		
@@ -28,6 +27,91 @@ ________________________________________________________
 
 ### 1. La devinette
 
-**Download** [pass](../Files/pass) (Binary file)
+**Download** [pass](../Files/pass "pass") (Binary file)
 
 1. Premiere méthode
+
+>Tout d'abord pour savoir a quoi on doit s'attendre
+
+```bash
+file pass
+```
+
+Output
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
