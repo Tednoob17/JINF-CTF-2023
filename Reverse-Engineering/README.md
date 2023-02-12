@@ -1,10 +1,10 @@
-# JINF-CTF-2023
+# JINF-CTF-2023 👨‍💻️
 
-### Kira's_team
-1. Kira `Captain`
-2. amo_weak
-3. Eddy
-4. Hyd3
+### Kira's_team 👨‍👨‍👦‍👦️
+1. Kira `Captain` 👨‍✈️️
+2. amo_weak 🕵️
+3. Eddy 👨‍🔬️
+4. Hyd3 🧙️
 
 ## Author: Hyd3 From Kira's_team
 
@@ -23,7 +23,7 @@ ________________________________________________________
 		- Premiere méthode
 		- Seconde  méthode
 		
-#### Let's Go
+#### Let's Go🏇️
 
 ### 1. La devinette
 
@@ -37,7 +37,7 @@ ________________________________________________________
 file pass
 ```
 
-Output
+`Output`
 
 
 
