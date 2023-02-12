@@ -40,9 +40,14 @@ file pass
 `Output`
 ![pass](../Images/filepass.png)
 
+Le binaire n'est pas strippé Dieu merci
+>On ne s'agite pas on ne sait amais ce qui peut se passer avec un binaire , on pourrait avoir des informations utiles dans les 
+`Output`
 
 
-
+```bash
+strings pass
+```
 
 
 
