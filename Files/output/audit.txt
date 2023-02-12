@@ -1,0 +1,23 @@
+Foremost version 1.5.7 by Jesse Kornblum, Kris Kendall, and Nick Mikus
+Audit File
+
+Foremost started at Fri Feb 10 23:16:10 2023
+Invocation: foremost happy_birthday.png 
+Output directory: /home/t3d/Téléchargements/jinf-ctf/output
+Configuration file: /etc/foremost.conf
+------------------------------------------------------------------
+File: happy_birthday.png
+Start: Fri Feb 10 23:16:10 2023
+Length: 405 KB (415695 bytes)
+ 
+Num	 Name (bs=512)	       Size	 File Offset	 Comment 
+
+0:	00000000.png 	     405 KB 	          0 	  (1000 x 1000)
+Finish: Fri Feb 10 23:16:10 2023
+
+1 FILES EXTRACTED
+	
+png:= 1
+------------------------------------------------------------------
+
+Foremost finished at Fri Feb 10 23:16:10 2023

@@ -17,3 +17,7 @@
 		2. Seconde  méthode
 		
 #### Let's Go
+
+### 1. La devinette
+
+**Download** [pass](../Files/pass) file (Binary file)

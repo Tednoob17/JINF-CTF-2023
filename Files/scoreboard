@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Admin Panel</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="/themes/core/static/img/favicon.ico?d=b556f1ce" type="image/x-icon">
+	<link rel="icon" href="/themes/core/static/img/favicon.ico?d=b556f1ce" type="image/x-icon">
+	<link rel="stylesheet" href="/themes/core/static/css/fonts.min.css?d=b556f1ce">
+	<link rel="stylesheet" href="/themes/core/static/css/main.min.css?d=b556f1ce">
+	<link rel="stylesheet" href="/themes/admin/static/css/admin.min.css?d=b556f1ce">
+	<link rel="stylesheet" href="/themes/admin/static/css/codemirror.min.css?d=b556f1ce">
+	<script type="text/javascript">
+		var init = {
+			'urlRoot': "",
+			'csrfNonce': "678c63908ede9a1087a21732ba527d1a9ad5ad4bd8069890425bc690ef928550",
+			'userMode': "teams",
+			'userId': 15,
+			'userName': "Enselme",
+			'userEmail': "eaguidigodo@gmail.com",
+			'teamId': null, 
+			'teamName': null,
+			'start': 1676062800,
+			'end': 1676149200
+		}
+	</script>
+	 
+	
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+		<div class="container">
+			<a href="/" class="navbar-brand">CTFd</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#base-navbars"
+					aria-controls="base-navbars" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="base-navbars">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><a class="nav-link" href="/admin/statistics">Statistics</a></li>
+					<li class="nav-item"><a class="nav-link" href="/admin/notifications">Notifications</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Pages</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="/admin/pages">All Pages</a>
+							<a class="dropdown-item" href="/admin/pages/new">New Page</a>
+						</div>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="/admin/users">Users</a></li>
+					
+					<li class="nav-item"><a class="nav-link" href="/admin/teams">Teams</a></li>
+					
+					<li class="nav-item"><a class="nav-link" href="/admin/scoreboard">Scoreboard</a></li>
+					<li class="nav-item"><a class="nav-link" href="/admin/challenges">Challenges</a></li>
+					<li class="nav-item dropdown">
+						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+						   aria-haspopup="true" aria-expanded="true">Submissions</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="/admin/submissions">All Submissions</a>
+							<a class="dropdown-item" href="/admin/submissions/correct">Correct Submissions</a>
+							<a class="dropdown-item" href="/admin/submissions/incorrect">Incorrect Submissions</a>
+						</div>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="/admin/config">Config</a></li>
+
+					
+					
+					
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="nav-item">
+						<a class="nav-link" href="https://docs.ctfd.io/" target="_blank">
+							<i class="far fa-question-circle"></i>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<main role="main">
+		
+		<div class="container-fluid bg-warning text-center py-3">
+			<div class="row">
+				<div class="col-md-12">
+					<a class="btn btn-warning" href="https://github.com/CTFd/CTFd/releases/tag/3.5.1">
+						A new CTFd version is available!
+					</a>
+				</div>
+			</div>
+		</div>
+		
+		
+<div class="jumbotron">
+	<div class="container">
+		<h1>Scoreboard</h1>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="float-right pb-3">
+				<div class="btn-group" role="group">
+					<button type="button" class="btn btn-outline-secondary" id="scoreboard-edit-button" data-toggle="tooltip" title="Hide/Unhide Accounts">
+						<i class="btn-fa fas fa-eye"></i>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+	<div class="row pb-4">
+		<div class="col-md-12">
+			<ul class="nav nav-tabs nav-fill" role="tablist">
+				<li class="nav-item">
+					<a class="nav-link active" data-toggle="tab" href="#standings" role="tab">
+						Teams
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#user-standings" role="tab">
+						Users
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+
+	<div class="row">
+		<div class="col-md-12 table-responsive">
+			<div class="tab-content">
+				<div class="tab-pane fade show active" id="standings" role="tabpanel">
+					<table id="scoreboard" class="table table-striped border">
+	<thead>
+		<tr>
+			<th class="border-right" data-checkbox>
+				<div class="form-check text-center">
+					<input type="checkbox" class="form-check-input" id="scoreboard-bulk-select" autocomplete="off" data-checkbox-all>&nbsp;
+				</div>
+			</th>
+			<th class="sort-col text-center"><b>Place</b></th>
+			<th class="sort-col"><b>Team</b></th>
+			<th class="sort-col"><b>Score</b></th>
+			<th class="sort-col"><b>Visibility</b></th>
+		</tr>
+	</thead>
+	<tbody>
+	
+		<tr data-href="/admin/teams/13">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="13" data-account-id="13" autocomplete="off">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">1</td>
+			<td>
+				<a href="/admin/teams/13">
+					Kira&#39;s_team
+					
+				</a>
+			</td>
+			<td>600</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/teams/16">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="16" data-account-id="16" autocomplete="off">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">2</td>
+			<td>
+				<a href="/admin/teams/16">
+					r3v3l4ti0N
+					
+				</a>
+			</td>
+			<td>500</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/teams/24">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="24" data-account-id="24" autocomplete="off">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">3</td>
+			<td>
+				<a href="/admin/teams/24">
+					syscall
+					
+				</a>
+			</td>
+			<td>500</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/teams/18">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="18" data-account-id="18" autocomplete="off">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">4</td>
+			<td>
+				<a href="/admin/teams/18">
+					JEFE
+					
+				</a>
+			</td>
+			<td>250</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/teams/29">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="29" data-account-id="29" autocomplete="off">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">5</td>
+			<td>
+				<a href="/admin/teams/29">
+					HUNTERS
+					
+				</a>
+			</td>
+			<td>250</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/teams/10">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="10" data-account-id="10" autocomplete="off">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">6</td>
+			<td>
+				<a href="/admin/teams/10">
+					StarsWars
+					
+				</a>
+			</td>
+			<td>240</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/teams/15">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="15" data-account-id="15" autocomplete="off">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">7</td>
+			<td>
+				<a href="/admin/teams/15">
+					CodeBreaker
+					
+				</a>
+			</td>
+			<td>240</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/teams/20">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="20" data-account-id="20" autocomplete="off">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">8</td>
+			<td>
+				<a href="/admin/teams/20">
+					GHOST
+					
+				</a>
+			</td>
+			<td>200</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/teams/11">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="11" data-account-id="11" autocomplete="off">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">9</td>
+			<td>
+				<a href="/admin/teams/11">
+					NetBlade
+					
+				</a>
+			</td>
+			<td>190</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/teams/12">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="12" data-account-id="12" autocomplete="off">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">10</td>
+			<td>
+				<a href="/admin/teams/12">
+					su4ever
+					
+						
+							<a href="https://majorleaguecyber.org/t/su4ever">
+								<span class="badge badge-primary">Official</span>
+							</a>
+						
+					
+				</a>
+			</td>
+			<td>190</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/teams/26">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="26" data-account-id="26" autocomplete="off">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">11</td>
+			<td>
+				<a href="/admin/teams/26">
+					HackGirls
+					
+				</a>
+			</td>
+			<td>150</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/teams/17">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="17" data-account-id="17" autocomplete="off">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">12</td>
+			<td>
+				<a href="/admin/teams/17">
+					W4s4B!
+					
+				</a>
+			</td>
+			<td>140</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/teams/27">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="27" data-account-id="27" autocomplete="off">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">13</td>
+			<td>
+				<a href="/admin/teams/27">
+					YO
+					
+				</a>
+			</td>
+			<td>100</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/teams/28">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="28" data-account-id="28" autocomplete="off">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">14</td>
+			<td>
+				<a href="/admin/teams/28">
+					Sloppy Joe Pirates
+					
+						
+							<a href="https://majorleaguecyber.org/t/Sloppy Joe Pirates">
+								<span class="badge badge-primary">Official</span>
+							</a>
+						
+					
+				</a>
+			</td>
+			<td>100</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/teams/22">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="22" data-account-id="22" autocomplete="off">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">15</td>
+			<td>
+				<a href="/admin/teams/22">
+					Hacktivists
+					
+				</a>
+			</td>
+			<td>90</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/teams/25">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="25" data-account-id="25" autocomplete="off">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">16</td>
+			<td>
+				<a href="/admin/teams/25">
+					Dark_Army
+					
+				</a>
+			</td>
+			<td>50</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+	</tbody>
+</table>
+				</div>
+				
+				<div class="tab-pane fade" id="user-standings" role="tabpanel">
+					<table id="scoreboard" class="table table-striped border">
+	<thead>
+		<tr>
+			<th class="border-right" data-checkbox>
+				<div class="form-check text-center">
+					<input type="checkbox" class="form-check-input" id="users-bulk-select" autocomplete="off" data-checkbox-all>&nbsp;
+				</div>
+			</th>
+			<th class="sort-col text-center"><b>Place</b></th>
+			<th class="sort-col"><b>User</b></th>
+			<th class="sort-col"><b>Score</b></th>
+			<th class="sort-col"><b>Visibility</b></th>
+		</tr>
+	</thead>
+	<tbody>
+	
+		<tr data-href="/admin/users/56">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="56" autocomplete="off" data-user-id="56">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">1</td>
+			<td>
+				<a href="/admin/users/56">
+					insiderblast
+					
+				</a>
+			</td>
+			<td>500</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/users/30">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="30" autocomplete="off" data-user-id="30">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">2</td>
+			<td>
+				<a href="/admin/users/30">
+					Hack2k21
+					
+						
+							<a href="https://majorleaguecyber.org/t/Hack2k21">
+								<span class="badge badge-primary">Official</span>
+							</a>
+						
+					
+				</a>
+			</td>
+			<td>450</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/users/23">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="23" autocomplete="off" data-user-id="23">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">3</td>
+			<td>
+				<a href="/admin/users/23">
+					amo_weak
+					
+				</a>
+			</td>
+			<td>350</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/users/39">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="39" autocomplete="off" data-user-id="39">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">4</td>
+			<td>
+				<a href="/admin/users/39">
+					JEFE
+					
+				</a>
+			</td>
+			<td>250</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/users/67">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="67" autocomplete="off" data-user-id="67">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">5</td>
+			<td>
+				<a href="/admin/users/67">
+					h1s0k4
+					
+				</a>
+			</td>
+			<td>250</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/users/16">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="16" autocomplete="off" data-user-id="16">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">6</td>
+			<td>
+				<a href="/admin/users/16">
+					Exkal1bur 
+					
+						
+							<a href="https://majorleaguecyber.org/t/Exkal1bur ">
+								<span class="badge badge-primary">Official</span>
+							</a>
+						
+					
+				</a>
+			</td>
+			<td>200</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/users/47">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="47" autocomplete="off" data-user-id="47">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">7</td>
+			<td>
+				<a href="/admin/users/47">
+					3uristic
+					
+				</a>
+			</td>
+			<td>200</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/users/19">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="19" autocomplete="off" data-user-id="19">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">8</td>
+			<td>
+				<a href="/admin/users/19">
+					Sora
+					
+				</a>
+			</td>
+			<td>190</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/users/35">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="35" autocomplete="off" data-user-id="35">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">9</td>
+			<td>
+				<a href="/admin/users/35">
+					Hyd3
+					
+				</a>
+			</td>
+			<td>150</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/users/38">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="38" autocomplete="off" data-user-id="38">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">10</td>
+			<td>
+				<a href="/admin/users/38">
+					12/09#
+					
+				</a>
+			</td>
+			<td>150</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/users/28">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="28" autocomplete="off" data-user-id="28">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">11</td>
+			<td>
+				<a href="/admin/users/28">
+					Ozu
+					
+				</a>
+			</td>
+			<td>140</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/users/17">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="17" autocomplete="off" data-user-id="17">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">12</td>
+			<td>
+				<a href="/admin/users/17">
+					Geekladie
+					
+				</a>
+			</td>
+			<td>140</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/users/51">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="51" autocomplete="off" data-user-id="51">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">13</td>
+			<td>
+				<a href="/admin/users/51">
+					ZHerowarning
+					
+				</a>
+			</td>
+			<td>100</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/users/66">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="66" autocomplete="off" data-user-id="66">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">14</td>
+			<td>
+				<a href="/admin/users/66">
+					c0nrad
+					
+						
+							<a href="https://majorleaguecyber.org/t/c0nrad">
+								<span class="badge badge-primary">Official</span>
+							</a>
+						
+					
+				</a>
+			</td>
+			<td>100</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/users/65">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="65" autocomplete="off" data-user-id="65">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">15</td>
+			<td>
+				<a href="/admin/users/65">
+					Selena
+					
+				</a>
+			</td>
+			<td>100</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/users/53">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="53" autocomplete="off" data-user-id="53">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">16</td>
+			<td>
+				<a href="/admin/users/53">
+					Emmanuel
+					
+				</a>
+			</td>
+			<td>100</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/users/21">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="21" autocomplete="off" data-user-id="21">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">17</td>
+			<td>
+				<a href="/admin/users/21">
+					Kira
+					
+				</a>
+			</td>
+			<td>100</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/users/18">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="18" autocomplete="off" data-user-id="18">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">18</td>
+			<td>
+				<a href="/admin/users/18">
+					hope07
+					
+				</a>
+			</td>
+			<td>50</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/users/29">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="29" autocomplete="off" data-user-id="29">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">19</td>
+			<td>
+				<a href="/admin/users/29">
+					Operion ☠️
+					
+				</a>
+			</td>
+			<td>50</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/users/45">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="45" autocomplete="off" data-user-id="45">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">20</td>
+			<td>
+				<a href="/admin/users/45">
+					Sm4rt
+					
+				</a>
+			</td>
+			<td>50</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/users/64">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="64" autocomplete="off" data-user-id="64">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">21</td>
+			<td>
+				<a href="/admin/users/64">
+					Marilyse
+					
+				</a>
+			</td>
+			<td>50</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/users/44">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="44" autocomplete="off" data-user-id="44">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">22</td>
+			<td>
+				<a href="/admin/users/44">
+					K1lg@re
+					
+				</a>
+			</td>
+			<td>50</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/users/26">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="26" autocomplete="off" data-user-id="26">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">23</td>
+			<td>
+				<a href="/admin/users/26">
+					0k1r1
+					
+				</a>
+			</td>
+			<td>50</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/users/42">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="42" autocomplete="off" data-user-id="42">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">24</td>
+			<td>
+				<a href="/admin/users/42">
+					Sp1der
+					
+				</a>
+			</td>
+			<td>50</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/users/41">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="41" autocomplete="off" data-user-id="41">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">25</td>
+			<td>
+				<a href="/admin/users/41">
+					K4r4
+					
+						
+							<a href="https://majorleaguecyber.org/t/K4r4">
+								<span class="badge badge-primary">Official</span>
+							</a>
+						
+					
+				</a>
+			</td>
+			<td>-10</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/users/55">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="55" autocomplete="off" data-user-id="55">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">26</td>
+			<td>
+				<a href="/admin/users/55">
+					G€€k
+					
+				</a>
+			</td>
+			<td>-10</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+		<tr data-href="/admin/users/37">
+			<td class="border-right text-center" data-checkbox>
+				<div class="form-check">
+					<input type="checkbox" class="form-check-input" value="37" autocomplete="off" data-user-id="37">&nbsp;
+				</div>
+			</td>
+			<td class="text-center" width="10%">27</td>
+			<td>
+				<a href="/admin/users/37">
+					2.2
+					
+				</a>
+			</td>
+			<td>-10</td>
+			<td>
+				
+					<span class="badge badge-success">visible</span>
+				
+			</td>
+		</tr>
+	
+	</tbody>
+</table>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+	</main>
+
+	<footer class="footer pt-2">
+		<div class="container text-center">
+			<a href="https://ctfd.io" class="text-secondary">
+				<small class="text-muted">
+					Powered by CTFd
+				</small>
+			</a>
+			<span>
+				<small class="text-muted"><br> Version 3.5.0</small>
+			</span>
+		</div>
+	</footer>
+
+	<script defer src="/themes/admin/static/js/vendor.bundle.min.js?d=b556f1ce"></script>
+	<script defer src="/themes/admin/static/js/core.min.js?d=b556f1ce"></script>
+	<script defer src="/themes/admin/static/js/helpers.min.js?d=b556f1ce"></script>
+	<script defer src="/themes/admin/static/js/components.min.js?d=b556f1ce"></script>
+
+	
+	<script defer src="/themes/admin/static/js/pages/scoreboard.min.js?d=b556f1ce"></script>
+
+
+	
+
+
+	
+</body>
+
+</html>
