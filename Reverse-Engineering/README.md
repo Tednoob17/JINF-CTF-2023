@@ -1,7 +1,7 @@
 # JINF-CTF-2023
 
 ### Kira's_team
-1. Kira **Captain**
+1. Kira `Captain`
 2. amo_weak
 3. Eddy
 4. Hyd3
