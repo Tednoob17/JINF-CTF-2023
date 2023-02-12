@@ -112,6 +112,7 @@ On peut donc essayer de la decodé
 `Output`:
 
 Et l'on peut voir s'afficher le flag 🔍️
+
 ![pass](../Images/obtain.png)
 
 
