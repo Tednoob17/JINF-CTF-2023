@@ -51,7 +51,7 @@ Le binaire n'est pas strippé Dieu merci
 strings pass
 ```
 
-
+![pass](../Images/header.png)
 
 
 
