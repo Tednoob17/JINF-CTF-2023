@@ -20,7 +20,7 @@ ________________________________________________________
 		- Premiere méthode
 		- Seconde  méthode
 	- Crack me
-		- Premiere méthode
+		-  méthode
 		
 #### Let's Go🏇️
 
@@ -208,5 +208,5 @@ en sautant evidemment chacunes des parties ou il y a comparaisons au début  en 
 
 
 > Ainsi apres convertions on obtient le flag:
-> `JINF{CrackMeFromBeni007}`🚩️
+> `JINF{CrackMeFromBenin007}`🚩️
 
