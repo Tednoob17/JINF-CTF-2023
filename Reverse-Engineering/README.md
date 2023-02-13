@@ -130,8 +130,7 @@ Et l'on peut voir s'afficher le flag 🔍️
 strings pass
 ```
 
-A*res cela fouiller dans l'output et vous verez une chaine en base64
-
+Apres cela fouiller dans l'output et vous verez une chaine en base64p
 ![base-2](../Images/sec.png)
 
 
