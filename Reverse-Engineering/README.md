@@ -35,7 +35,7 @@ ________________________________________________________
 
 1. Premiere méthode
 
->Tout d'abord pour savoir a quoi on doit s'attendre
+>Tout d'abord pour savoir â quoi on doit s'attendre
 
 ```bash
 file pass
@@ -47,7 +47,7 @@ file pass
 ![pass](../Images/filepass.png)
 
 Le binaire n'est pas strippé Dieu merci
->On ne s'agite pas on ne sait amais ce qui peut se passer avec un binaire , on pourrait avoir des informations utiles dans les 
+>On ne s'agite pas on ne sait jamais ce qui peut se passer avec un binaire , on pourrait avoir des informations utiles dans les 
 `strings`
 
 
@@ -59,9 +59,9 @@ strings pass
 
 Lâ on peut voir toutes les sections contenues dans le binaire
 
-En Faisant des recherche vous verez que la section `.rodata` contient les données qui peuvent etre en clair dans le binaire 📦️
+En Faisant des recherches vous verrez que la section `.rodata` contient les données qui peuvent etre en clair dans le binaire 📦️
 
-Nous allons donc utilisé la commande `objdump` qui se trouve de base sur la plupart des distributions GNU/Linux 📀️
+Nous allons donc utiliser la commande `objdump` qui se trouve de base sur la plupart des distributions GNU/Linux 📀️
 
 
 ```bash
@@ -80,13 +80,13 @@ objdump -d -j .rodata Files/pass
 
 
 
-Ce qui est interessant dans l'output est vette chaine de caractere affiché avant le message .
+Ce qui est interessant dans l'output est cette chaîne de caractere affichée avant le message .
 
 ```bash
 Files/pass:     format de fichier elf64-x86-64
 
 
-Déassemblage de la section .rodata :
+Désassemblage de la section .rodata :
 
 0000000000002000 <_IO_stdin_used>:
     2000:	01 00 02 00 00 00 00 00 53 6b 6c 4f 52 6e 74 55     ........SklORntU
@@ -107,8 +107,8 @@ Déassemblage de la section .rodata :
 
 ![flag](../Images/flag.png)
 
-> **Souvent** les chaines en base64 64 base32 se termine par un signe `=`
-On peut donc essayer de la decodé
+> **Souvent** les chaines en base64 64 base32 se terminent par un signe `=`
+On peut donc essayer de la decoder
 
 
 ```bash
@@ -130,7 +130,7 @@ Et l'on peut voir s'afficher le flag 🔍️
 strings pass
 ```
 
-Apres cela fouiller dans l'output et vous verez une chaine en base64p
+Apres cela fouiller dans l'output et vous verrez une chaîne en base64
 ![base-2](../Images/sec.png)
 
 
@@ -150,9 +150,9 @@ Et vous obtenez
 
 
 Second chall's de Reverse.
-**Download** [crackme](../Files/crackme "pass") (Binary file)
+ > **Download** [crackme](../Files/crackme "pass") (Binary file)
 
-
+Dans ce cas nous allons utiliser 
 
 
 
