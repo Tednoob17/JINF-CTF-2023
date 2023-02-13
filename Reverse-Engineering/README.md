@@ -156,8 +156,10 @@ Dans ce cas j'ai décider d'utiliser un utiliser un outils en ligne .[Binary nin
 
 > Mais selon vos envies et vos préférences , il y a une multitude d'outils adaptées comme:
 
-1. [Binary ninja](https://cloud.binary.ninja/)
 
+1. [Ida pro](https://hex-rays.com/ida-pro/)
+2. [edb](https://github.com/eteran/edb-debugger)
+2. [dogbolt](https://dogbolt.org/)
 
 
 
