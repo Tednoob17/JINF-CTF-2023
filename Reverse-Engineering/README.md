@@ -55,7 +55,7 @@ Le binaire n'est pas strippé Dieu merci
 strings pass
 ```
 
-![pass](../Images/header.png)
+![head](../Images/header.png)
 
 Lâ on peut voir toutes les sections contenues dans le binaire
 
@@ -76,7 +76,7 @@ objdump -d -j .rodata Files/pass
 
 `Output`:
 
-![pass](../Images/obj.png)
+![objdump](../Images/obj.png)
 
 
 
@@ -105,7 +105,7 @@ Déassemblage de la section .rodata :
 ```
 `Output`:
 
-![pass](../Images/flag.png)
+![flag](../Images/flag.png)
 
 > **Souvent** les chaines en base64 64 base32 se termine par un signe `=`
 On peut donc essayer de la decodé
@@ -118,24 +118,35 @@ echo "SklORntUVU5FY29OTkFJU3Bhc1JWfQo="|base64 -d
 
 Et l'on peut voir s'afficher le flag 🔍️
 
-![pass](../Images/obtain.png)
+![obtain](../Images/obtain.png)
 
-Flag: JINF{TUNEcoNNAISpasRV}
+`Flag: JINF{TUNEcoNNAISpasRV}`🏁️
 
 
 >	Seconde méthode
 
 
+```bash
+strings pass
+```
+
+A*res cela fouiller dans l'output et vous verez une chaine en base64
+
+![base-2](../Images/sec.png)
+
+
+```bash
+echo "SklORntUVU5FY29OTkFJU3Bhc1JWfQo="|base64 -d
+```
+
+Et vous obtenez
+
+`JINF{TUNEcoNNAISpasRV}` 🏴️
 
 
 
 
-
-
-
-
-
-
+## 2. Crack me ☢️
 
 
 
