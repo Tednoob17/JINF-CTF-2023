@@ -197,16 +197,18 @@ Pour mieux voir la partie le shémac regarder en hut  gauche et cliquer sur le p
 > La nous voyons qu'il y a des comprisons avec des valeurs hexadecimaux
 ![binary](../Images/1bin.png)
 ![binary](../Images/2bin.png)
-![binary](../Images/3bin.png)
+
 
 il vous suffir de convertir chcun des caracteres hexadecimaux en ASCII
-en sautant evidemment chaque 
+en sautant evidemment chaque les parties ou il y a comparaisons au début  en excluant la premiere comparaison.
+
+> Ceux lâ:
+![binary](../Images/gg.png)
+
+
+> Ainsi apres comversions on obtient le flag:
+> `JINF{CrackMeFr.rmBeni007}`
 
 
 
-
-
-
-
-
-
+![binary](../Images/3bin.png)
