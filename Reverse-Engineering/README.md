@@ -175,8 +175,13 @@ J'essaye d'executer avec un mot de passe random
 ./crackme 12qsdfns2q3
 ```
 
+![objdump](../Images/required.png)
 
+> Cela nous affiche une erreur en rapport avec la glibc qui est la bibliothêque ecrite en C pour le projet GNU
+ce qui veut dire que la version 2.34 utilisée pour compiler le binaire n'est pas la même que celle que j'ai.Or la version 2.34 est inférieur â la version que j'ai le binaire a sans doute été sur une ancienne disto Linux ou dans un terminal n'ayant pas la mise a our de la glibc
+Mais cela n'est pas un probleme il suffit de compiler dans un shell n'ayant pas ce probleme
 
+> Bref direction Binry ninja 👾️
 
 
 
