@@ -194,9 +194,9 @@ Pour mieux voir la partie le schéma regarder en haut   â gauche et cliquer sur
   
   
 > La nous voyons qu'il y a des comparaisons avec des valeurs hexadecimaux
-![binary](../Images/1bin.png)
-![binary](../Images/2bin.png)
-
+> ![binary](../Images/1bin.png)
+> ![binary](../Images/2bin.png)
+> ![binary](../Images/3bin.png)
 
 il vous suffit de convertir chacun des caracteres hexadecimaux en ASCII
 en sautant evidemment chacunes des parties ou il y a comparaisons au début  en excluant la premiere comparaison.
