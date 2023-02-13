@@ -111,7 +111,7 @@ On peut donc essayer de la decodé
 
 
 ```bash
-	echo "SklORntUVU5FY29OTkFJU3Bhc1JWfQo="|base64 -d
+echo "SklORntUVU5FY29OTkFJU3Bhc1JWfQo="|base64 -d
 ```
 `Output`:
 
@@ -119,7 +119,7 @@ Et l'on peut voir s'afficher le flag 🔍️
 
 ![pass](../Images/obtain.png)
 
-
+Flag: JINF{TUNEcoNNAISpasRV}
 
 
 
