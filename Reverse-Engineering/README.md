@@ -152,9 +152,11 @@ Et vous obtenez
 Second chall's de Reverse.
  > **Download** [crackme](../Files/crackme "pass") (Binary file)
 
-Dans ce cas nous allons utiliser 
+Dans ce cas j'ai décider d'utiliser un utiliser un outils en ligne .[Binary ninja](https://cloud.binary.ninja/)
 
+> Mais selon vos envies et vos préférences , il y a une multitude d'outils adaptées comme:
 
+1. [Binary ninja](https://cloud.binary.ninja/)
 
 
 
