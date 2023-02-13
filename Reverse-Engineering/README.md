@@ -28,7 +28,8 @@ ________________________________________________________
 ## 1. La devinette
 	
 
-	-Premiere méthode
+>	Premiere méthode
+
 	
 **Download** [pass](../Files/pass "pass") (Binary file)
 
@@ -122,7 +123,7 @@ Et l'on peut voir s'afficher le flag 🔍️
 Flag: JINF{TUNEcoNNAISpasRV}
 
 
-
+>	Seconde méthode
 
 
 
