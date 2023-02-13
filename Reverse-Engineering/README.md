@@ -21,7 +21,6 @@ ________________________________________________________
 		- Seconde  méthode
 	- Crack me
 		- Premiere méthode
-		- Seconde  méthode
 		
 #### Let's Go🏇️
 
