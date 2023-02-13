@@ -181,12 +181,12 @@ J'essaye d'executer avec un mot de passe random
 ce qui veut dire que la version 2.34 utilisée pour compiler le binaire n'est pas la même que celle que j'ai.Or la version 2.34 est inférieur â la version que j'ai le binaire a sans doute été sur une ancienne disto Linux ou dans un terminal n'ayant pas la mise a our de la glibc
 Mais cela n'est pas un probleme il suffit de compiler dans un shell n'ayant pas ce probleme
 
-s
+
 > Bref direction Binry ninja 👾️
 
 Pour ceux qui n'ont jamais utilisés Binry ninja il faudra créer un compte afin de pouvoir soit télécharger la version pour vos différentes machines ou sur le cloud , personnellemnt j'utilise le cloud 
 > vous choisissez votre option
-> j'ai uploder `crackme` sur la plateforme
+> j'ai uploder `crackme` sur la plateformeJINF{CrackMeFr.rmBeni007}
 
 ![binary](../Images/binary.png)
 
@@ -197,7 +197,7 @@ Pour mieux voir la partie le shémac regarder en hut  gauche et cliquer sur le p
 > La nous voyons qu'il y a des comprisons avec des valeurs hexadecimaux
 ![binary](../Images/1bin.png)
 ![binary](../Images/2bin.png)
-
+JINF{CrackMeFr.rmBeni007}
 
 il vous suffir de convertir chcun des caracteres hexadecimaux en ASCII
 en sautant evidemment chaque les parties ou il y a comparaisons au début  en excluant la premiere comparaison.
