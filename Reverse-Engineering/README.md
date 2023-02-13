@@ -177,29 +177,29 @@ J'essaye d'executer avec un mot de passe random
 ![objdump](../Images/required.png)
 > 👩‍🚒️ 
 > Cela nous affiche une erreur en rapport avec la glibc qui est la bibliothêque ecrite en C pour le projet GNU
-ce qui veut dire que la version 2.34 utilisée pour compiler le binaire n'est pas la même que celle que j'ai.Or la version 2.34 est inférieur â la version que j'ai le binaire a sans doute été sur une ancienne disto Linux ou dans un terminal n'ayant pas la mise a our de la glibc
+ce qui veut dire que la version 2.34 utilisée pour compiler le binaire n'est pas la même que celle que j'ai.Or la version 2.34 est inférieur â la version que j'ai le binaire a sans doute été sur une ancienne distro Linux ou dans un terminal n'ayant pas la mise a jour de la glibc
 Mais cela n'est pas un probleme il suffit de compiler dans un shell n'ayant pas ce probleme
 
 
-> Bref direction Binry ninja 👾️
+> Bref direction Binary ninja 👾️
 
-Pour ceux qui n'ont jamais utilisés Binry ninja il faudra créer un compte afin de pouvoir soit télécharger la version pour vos différentes machines ou sur le cloud , personnellemnt j'utilise le cloud 
-> vous choisissez votre option
+Pour ceux qui n'ont jamais utilisés Binry ninja il faudra créer un compte afin de pouvoir soit télécharger la version pour vos différentes machines ou sur le cloud , personnellement j'utilise le cloud 
+> Vous choisissez votre option
 > j'ai uploder `crackme` sur la plateformeJINF{CrackMeFr.rmBeni007}
 
 ![binary](../Images/binary.png)
 
 Lorsque vous regardez du coté gauche nous remarquons la fonction   `check_password` verifions ça
-Pour mieux voir la partie le shémac regarder en hut  gauche et cliquer sur le premier bouton 
+Pour mieux voir la partie le schéma regarder en haut   â gauche et cliquer sur le premier bouton 
   
   
-> La nous voyons qu'il y a des comprisons avec des valeurs hexadecimaux
+> La nous voyons qu'il y a des comparaisons avec des valeurs hexadecimaux
 ![binary](../Images/1bin.png)
 ![binary](../Images/2bin.png)
 
 
-il vous suffir de convertir chcun des caracteres hexadecimaux en ASCII
-en sautant evidemment chaque les parties ou il y a comparaisons au début  en excluant la premiere comparaison.
+il vous suffit de convertir chacun des caracteres hexadecimaux en ASCII
+en sautant evidemment chacunes des parties ou il y a comparaisons au début  en excluant la premiere comparaison.
 
 > Ceux lâ: 👇️
 
@@ -207,6 +207,6 @@ en sautant evidemment chaque les parties ou il y a comparaisons au début  en ex
 ![binary](../Images/gg.png)
 
 
-> Ainsi apres comversions on obtient le flag:
+> Ainsi apres convertions on obtient le flag:
 > `JINF{CrackMeFromBeni007}`🚩️
 
