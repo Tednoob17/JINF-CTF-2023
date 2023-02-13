@@ -185,7 +185,7 @@ Mais cela n'est pas un probleme il suffit de compiler dans un shell n'ayant pas 
 
 Pour ceux qui n'ont jamais utilisés Binry ninja il faudra créer un compte afin de pouvoir soit télécharger la version pour vos différentes machines ou sur le cloud , personnellement j'utilise le cloud 
 > Vous choisissez votre option
-> j'ai uploder `crackme` sur la plateformeJINF{CrackMeFr.rmBeni007}
+> j'ai uploder `crackme` sur la plateforme 
 
 ![binary](../Images/binary.png)
 
