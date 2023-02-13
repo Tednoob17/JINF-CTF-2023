@@ -159,12 +159,21 @@ Dans ce cas j'ai décider d'utiliser un utiliser un outils en ligne .[Binary nin
 
 1. [Ida pro](https://hex-rays.com/ida-pro/)
 2. [edb](https://github.com/eteran/edb-debugger)
-2. [dogbolt](https://dogbolt.org/)
+3. [dogbolt](https://dogbolt.org/)
 
+Essayons d'exécuter le binaire tout d'abord.Souvent le principe des crackme c'est de trouver le password afin d'avoir le flag
+donc on est censé faire comme ceci:
 
+```bash
+./crackme password
+```
 
+> Avec password etant le mot de passe mais dans mon cas cela s'est passé différement
 
-
+J'essaye d'executer avec un mot de passe random
+```bash
+./crackme 12qsdfns2q3
+```
 
 
 
